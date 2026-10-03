@@ -1,61 +1,71 @@
 # GreenAgri — Carbon Credit Estimation System
 
-An IoT + Machine Learning based prototype that estimates how much carbon a farm or industry is saving or emitting, and shows it on a simple dashboard as "carbon credits."
+An IoT + Machine Learning based prototype that estimates how much carbon a farm or industry is saving or emitting, and shows it as an easy-to-read "carbon credit" score.
 
 ---
 
 ## What This Project Does
 
 1. **Sensors** collect real-world data (soil moisture, temperature, gas levels, etc.)
-2. **ESP32** sends this data to the cloud (Firebase)
+2. **ESP32** sends this data to the cloud
 3. An **ML model** uses this data to predict carbon emitted/saved
-4. A **dashboard** shows this as an easy-to-read carbon credit score
+4. A **dashboard** (coming in Module 2) shows this as a carbon credit score
 
 ```
-Sensors → ESP32 → Firebase → ML Model → Carbon Credit Score → Dashboard
+Sensors → ESP32 → Cloud → ML Model → Carbon Credit Score → Dashboard
 ```
 
 ---
 
 ## Why This Project
 
-Right now, checking carbon credits needs manual audits or expensive satellite/scientific models. Small farmers can't easily access this. This project builds a **low-cost, automated** alternative using basic sensors and ML.
+Checking carbon credits today needs manual audits or expensive satellite/scientific models, which small farmers can't easily access. This project builds a **low-cost, automated** alternative using basic sensors and ML.
 
 ---
 
 ## Project Modules
 
-- **Module 1** — Sensors + ML (collect data, predict carbon value) ✅ *in progress*
+- **Module 1** — Sensors + Data + ML (collect data, clean it, predict carbon value) ✅ *in progress*
 - **Module 2** — Web Dashboard (show data + credits) ⏳ *upcoming*
 
 ---
 
-## Hardware Used
+## Folder Structure
+
+```
+GreenAgri_CarbonCredit_Estimator/
+├── data/
+│   ├── raw/
+│   │   ├── carbon_credit_synthetic_dataset.csv      # Original sample data
+│   │   └── carbon_credit_synthetic_dataset.xlsx
+│   └── processed/                                   # Reserved for future cleaned/engineered data
+├── notebook/
+│   ├── eda_outputs/                                 # Graphs generated from the data
+│   │   ├── 01_correlation_heatmap.png
+│   │   ├── 02_carbon_credit_distribution.png
+│   │   ├── 03_emission_by_practice.png
+│   │   ├── 04_credit_by_crop.png
+│   │   ├── 05_soilmoisture_vs_emission.png
+│   │   └── 06_emission_category_count.png
+│   ├── cleaned_carbon_credit_dataset.csv            # Cleaned, ready-to-use data
+│   └── Module1_Data_Cleaning_EDA.ipynb              # Code for cleaning data + making graphs
+└── README.md
+```
+
+---
+
+## Hardware Used (for Sensor Data Collection)
 
 - ESP32 (microcontroller)
 - DHT22 (temperature & humidity)
 - Soil Moisture Sensor
 - MQ135 (gas sensor)
-- NPK/pH Sensor (soil nutrients)
-
----
-
-## Files in This Project
-
-| File | What It Is |
-|---|---|
-| `Project_Brief.pdf` | Problem statement, objectives, reference paper |
-| `wiring_diagram.png` | How sensors connect to ESP32 |
-| `carbon_credit_synthetic_dataset.csv` | Raw sample data |
-| `cleaned_carbon_credit_dataset.csv` | Cleaned, ready-to-use data |
-| `Module1_Data_Cleaning_EDA.ipynb` | Code for cleaning data + graphs |
-| `eda_outputs/` | Graphs/charts from the data |
 
 ---
 
 ## Tools Used
 
-Python, pandas, scikit-learn, Firebase, ESP32, React (for Module 2)
+Python, pandas, scikit-learn, Matplotlib/Seaborn, Firebase, ESP32, React (for Module 2)
 
 ---
 
@@ -63,8 +73,9 @@ Python, pandas, scikit-learn, Firebase, ESP32, React (for Module 2)
 
 - ✅ Problem statement & objectives done
 - ✅ Hardware wiring planned
-- ✅ Sample dataset created
-- ✅ Data cleaning & graphs done
+- ✅ Sample dataset created (raw)
+- ✅ Data cleaned + graphs generated
+- ✅ Project pushed to GitHub
 - ⏳ ML model (next step)
 - ⏳ Dashboard (Module 2)
 
