@@ -38,7 +38,8 @@ GreenAgri_CarbonCredit_Estimator/
 │   ├── raw/
 │   │   ├── carbon_credit_synthetic_dataset.csv      # Original sample data
 │   │   └── carbon_credit_synthetic_dataset.xlsx
-│   └── processed/                                   # Reserved for future cleaned/engineered data
+│   └── processed/
+|       ├── cleaned_carbon_credit_dataset.csv        # Cleaned, ready-to-use data 
 ├── notebook/
 │   ├── eda_outputs/                                 # Graphs generated from the data
 │   │   ├── 01_correlation_heatmap.png
@@ -47,7 +48,6 @@ GreenAgri_CarbonCredit_Estimator/
 │   │   ├── 04_credit_by_crop.png
 │   │   ├── 05_soilmoisture_vs_emission.png
 │   │   └── 06_emission_category_count.png
-│   ├── cleaned_carbon_credit_dataset.csv            # Cleaned, ready-to-use data
 │   └── Module1_Data_Cleaning_EDA.ipynb              # Code for cleaning data + making graphs
 └── README.md
 ```
@@ -80,3 +80,15 @@ Python, pandas, scikit-learn, Matplotlib/Seaborn, Firebase, ESP32, React (for Mo
 - ⏳ Dashboard (Module 2)
 
 ---
+
+## Repository
+
+[github.com/sharwariudgirwar24/GreenAgri_CarbonCredit_Estimator](https://github.com/sharwariudgirwar24/GreenAgri_CarbonCredit_Estimator)
+
+---
+
+## Reference Paper
+
+Gokul et al. (2026). *Carbon credit mechanisms for sustainable agriculture and opportunities in North East India.* Discover Sustainability.
+
+This project builds a working prototype for an idea the paper only discusses in theory — making carbon credit tracking simple and affordable using IoT + ML.
