@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+openpyxl
+firebase-admin
+python-dotenv
+jupyter

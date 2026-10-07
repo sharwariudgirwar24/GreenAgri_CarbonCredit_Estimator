@@ -1,0 +1,12 @@
+# Firebase credentials
+credentials/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
