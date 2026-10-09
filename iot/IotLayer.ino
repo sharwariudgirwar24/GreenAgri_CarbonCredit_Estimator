@@ -3,6 +3,7 @@
 #include <addons/TokenHelper.h>
 #include <addons/RTDBHelper.h>
 #include "DHT.h"
+#include "secrets.h"
 
 /*
   GreenAgri Carbon Credit Estimator
@@ -21,17 +22,14 @@
 // WIFI
 // --------------------------------------------------
 
-#define WIFI_SSID "vivo 1920"
-#define WIFI_PASSWORD "12345678"
+#define WIFI_SSID WIFI_SSID
+#define WIFI_PASSWORD WIFI_PASSWORD
 
 // --------------------------------------------------
 // FIREBASE
 // --------------------------------------------------
-
-#define API_KEY "AIzaSyCOfkObRrIyn3Vbt3MTuCkNgtSQGoFSZb8"
-
-#define DATABASE_URL "https://greenagri-aff32-default-rtdb.asia-southeast1.firebasedatabase.app/"
-
+#define API_KEY API_KEY
+#define DATABASE_URL DATABASE_URL
 // --------------------------------------------------
 // SENSOR PINS
 // --------------------------------------------------

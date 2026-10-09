@@ -10,3 +10,6 @@ __pycache__/
 
 # Environment variables
 .env
+
+iot/secrets.h
+iot/secrets_backup.h
