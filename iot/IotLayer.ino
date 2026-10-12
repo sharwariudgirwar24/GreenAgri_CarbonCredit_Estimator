@@ -7,29 +7,21 @@
 
 /*
   GreenAgri Carbon Credit Estimator
-  Step 2 - ESP32 + Firebase Realtime Database (FIXED VERSION)
+  Step 2 - ESP32 + Firebase Realtime Database (FINAL VERSION)
 
   Sensors:
     DHT22        -> GPIO4
     Soil Sensor  -> GPIO34
     MQ-135       -> GPIO35
 
-  Data is sent to Firebase every 15 seconds.
+  WiFi, API key and Database URL come directly from secrets.h
+  (no extra #define aliasing -- that was the cause of the earlier
+  "WIFI_SSID was not declared" compile error).
+
+  Data is sent to Firebase every 15 seconds, as ONE combined
+  JSON object per reading.
 */
 
-
-// --------------------------------------------------
-// WIFI
-// --------------------------------------------------
-
-#define WIFI_SSID WIFI_SSID
-#define WIFI_PASSWORD WIFI_PASSWORD
-
-// --------------------------------------------------
-// FIREBASE
-// --------------------------------------------------
-#define API_KEY API_KEY
-#define DATABASE_URL DATABASE_URL
 // --------------------------------------------------
 // SENSOR PINS
 // --------------------------------------------------
@@ -55,7 +47,6 @@ FirebaseConfig config;
 // --------------------------------------------------
 
 unsigned long lastSendTime = 0;
-
 const unsigned long sendInterval = 15000;   // 15 seconds
 
 
@@ -79,7 +70,7 @@ void setup() {
 
   Serial.print("Connecting to WiFi");
 
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(SECRET_SSID, SECRET_PASSWORD);
 
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -97,8 +88,8 @@ void setup() {
   // FIREBASE CONFIGURATION
   // ------------------------------------------------
 
-  config.api_key = API_KEY;
-  config.database_url = DATABASE_URL;
+  config.api_key = SECRET_API_KEY;
+  config.database_url = SECRET_DATABASE_URL;
 
 
   // ------------------------------------------------
@@ -180,8 +171,7 @@ void loop() {
 
   // ------------------------------------------------
   // SEND TO FIREBASE EVERY 15 SECONDS
-  // FIXED: all values combined into ONE JSON object,
-  // pushed ONCE, instead of 5 separate pushes
+  // All values combined into ONE JSON object, pushed ONCE
   // ------------------------------------------------
 
   if (Firebase.ready() &&
